@@ -1,0 +1,41 @@
+<nav class="navbar bg-primary sticky-top navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">YelpCamp</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/campgrounds">Campgrounds</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/campgrounds/new">New Campground</a>
+        </li>
+      </ul>
+      <div class="navbar-nav d-flex me-2">
+        <% if (!currentUser){ %>
+        <a href="/register" class="nav-link">Register</a>
+        <a href="/LogIn" class="nav-link">LogIn</a>
+        <% }else{ %>
+        <a href="#" class="nav-link"><%= currentUser.username %></a>
+        <form action="/logout" method="post">
+          <button class="nav-link btn btn-link">Logout</button>
+        </form>
+        <% } %>
+        <!-- <a href="/Logout" class="nav-link">Logout</a> -->
+      </div>
+    </div>
+  </div>
+</nav>

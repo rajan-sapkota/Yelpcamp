@@ -1,0 +1,74 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <div class="col-6 offset-3">
+    <h3 class="text-center">New Campground</h3>
+    <form
+      action="/campgrounds"
+      method="post"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label"> Title: </label
+        ><input
+          type="text"
+          name="title"
+          id="title"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="Location" class="form-label"> Location:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Location"
+          id="Location"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label"> Image URL:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="image"
+          id="image"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div>
+        <label for="price" class="form-label"> Price:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            class="form-control"
+            placeholder="0.00"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label"> Description:</label>
+        <textarea
+          type="text"
+          class="form-control"
+          name="description"
+          id="description"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Add Campground</button>
+    </form>
+    <a href="/campgrounds">Back</a>
+  </div>
+</div>

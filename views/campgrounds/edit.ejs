@@ -1,0 +1,77 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <div class="col-6 offset-3">
+    <h3 class="text-center">Edit Campground</h3>
+    <form
+      action="/campgrounds/<%= campground.id %>?_method=PUT"
+      method="post"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label"> Title: </label
+        ><input
+          type="text"
+          name="title"
+          id="title"
+          class="form-control"
+          value="<%= campground.title %> "
+          required
+        /><br />
+      </div>
+      <div class="mb-3">
+        <label for="Location" class="form-label"> Location:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Location"
+          id="Location"
+          value="<%= campground.Location %> "
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label"> Image URL:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="image"
+          id="image"
+          value="<%= campground.image %> "
+          required
+        />
+      </div>
+      <div>
+        <label for="price" class="form-label"> Price:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            class="form-control"
+            placeholder="0.00"
+            value="<%= campground.price%> "
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label"> Description:</label>
+        <textarea
+          type="text"
+          class="form-control"
+          name="description"
+          id="description"
+          value=""
+          required
+        >
+<%= campground.description %> </textarea
+        >
+      </div>
+
+      <button type="submit" class="btn btn-success">Update Campground</button>
+    </form>
+    <a href="/campgrounds">Back</a>
+  </div>
+</div>
