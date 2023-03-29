@@ -8,6 +8,8 @@ const LocalStrategy = require('passport-local');
 const app= express();
 const campgroundRoutes= require('./routes/campgroundRoutes');
 const users= require('./routes/users');
+const cors = require('cors');
+
 
 const path= require('path');
 
@@ -21,11 +23,11 @@ const flash = require('connect-flash');
 
 mongoose.set('strictQuery', true);          //mongoose depricated error 
 
+app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'))                              //override the form method (using put, delete, etc.)
 app.use(express.static(path.join(__dirname,'public')));
-
 const sessionConfig = {                         //setting the sessions 
     name:'cookie-session',
     secret: 'keyboard cat',
