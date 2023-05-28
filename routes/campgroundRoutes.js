@@ -35,7 +35,7 @@ router.get('', wrapError(async(req, res)=>{
     
     console.log('this is campground')
     const camp= await campgroundModel.find();
-    res.render('Campgrounds/campgrounds', {camp})
+    res.render('campgrounds/campgrounds', {camp})
 }))
 
 router.get('/new', isLoggedIn, wrapError(async(req, res)=>{
