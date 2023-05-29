@@ -87,14 +87,17 @@ router.post('/review/:id',isLoggedIn, reviewValidator, wrapError(async(req, res,
 
 router.get('/:id/edit', isLoggedIn, wrapError(async(req, res)=>{
     const campground= await campgroundModel.findById(req.params.id).populate('author')
+    console.log(req.user.username==campground.author.username);
     console.log(req.user==campground.author);
-    if(req.user!==campground.author){
+   
+    if(req.user.username!==campground.author.username){
         console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         req.flash('error', "you don't have the permission to do that!!")
         return res.redirect(`/campgrounds/${campground._id}`);
 
     }
-    else{
+    else
+    {
     res.render('campgrounds/edit', {campground});}
 }))
 
